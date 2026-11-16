@@ -41,8 +41,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .note--l{left:var(--pad)}
 .note--r{right:var(--pad);text-align:right}
 .role{position:absolute;left:50%;transform:translateX(-50%);top:calc(62% + clamp(38px,6vw,88px) + 10px);margin:0;width:max-content;max-width:90%;text-align:center;font-size:15px;color:var(--soft);text-shadow:0 1px 12px rgba(43,33,28,.8);z-index:2}
-.role__lead{display:block;margin-top:6px;font-size:15px;font-weight:700;color:var(--on-photo)}
-.role b{font-size:clamp(15px,1.35vw,19px);font-weight:700}
+.role__lead{display:block;margin-top:6px;font-size:15px;font-weight:400;color:var(--on-photo)}
+.role b{font-size:clamp(15px,1.35vw,19px);font-weight:800}
 /* Ticker */
 .ticker{background:var(--brown);color:var(--bg);overflow:hidden;white-space:nowrap;padding:10px 0;font-weight:500;font-size:13px;letter-spacing:.01em}
 .ticker__track{display:inline-flex;animation:run 40s linear infinite}
@@ -58,7 +58,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   .w,.w--c{font-size:clamp(40px,13vw,64px)}.arr{display:none}
   .w--l,.w--r{color:var(--accent)}
   .note,.role{position:static;transform:none;width:auto;max-width:none;text-align:left;color:var(--brown);text-shadow:none;padding:12px 16px 0}
-  .role__lead{display:block;margin-top:6px;font-size:15px;font-weight:700;color:var(--brown)}
+  .role__lead{display:block;margin-top:6px;font-size:15px;font-weight:400;color:var(--brown)}
 .role b{font-size:16px}
   .note--l{order:3}.note--r{order:4}.role{order:5;padding-bottom:24px}
 }
