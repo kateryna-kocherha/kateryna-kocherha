@@ -58,7 +58,7 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   .w,.w--c{font-size:clamp(40px,13vw,64px)}.arr{display:none}
   .w--l,.w--r{color:var(--accent)}
   .note,.role{position:static;transform:none;width:auto;max-width:none;text-align:left;color:var(--brown);text-shadow:none;padding:12px 16px 0}
-  .role__lead{display:block;margin-top:6px;font-size:15px;font-weight:500;color:var(--on-photo)}
+  .role__lead{display:block;margin-top:6px;font-size:15px;font-weight:500;color:var(--brown)}
 .role b{font-size:16px}
   .note--l{order:3}.note--r{order:4}.role{order:5;padding-bottom:24px}
 }
