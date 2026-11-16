@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>План сайту-портфоліо</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: one reading column of numbered sections, built on Kateryna's own palette (single warm light theme). */
+:root{
+  --bg:#F2EFEA;
+  --surface:#FBF9F6;
+  --ink:#2B211C;
+  --brown:#593E33;
+  --muted:#6E625A;
+  --line:#DED6CC;
+  --sand:#C2A78A;
+  --olive:#6D724A;
+  --olive-soft:#E6E6D8;
+  --accent:#7B3533;
+  --accent-soft:#F1E1DE;
+  --display:"Unbounded", "Arial Black", system-ui, sans-serif;
+  --body:"Manrope", "Segoe UI", system-ui, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.wrap{max-width:880px;margin:0 auto;padding:48px 20px 80px;display:flex;flex-direction:column;gap:56px}
+header{display:flex;flex-direction:column;gap:12px;border-bottom:1px solid var(--line);padding-bottom:32px}
+.kicker{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(28px,5vw,42px);line-height:1.15;margin:0;color:var(--brown);text-wrap:balance}
+h1 .star{color:var(--accent)}
+h2{font-family:var(--display);font-weight:500;font-size:22px;margin:0;display:flex;gap:14px;align-items:baseline;color:var(--brown);text-wrap:balance}
+h2 .n{color:var(--accent);font-size:15px}
+h3{font-size:17px;margin:0;font-weight:700}
+p{margin:0;max-width:68ch}
+.note{color:var(--muted);font-size:15px}
+section{display:flex;flex-direction:column;gap:20px}
+.statement{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:24px 26px;font-size:20px;line-height:1.5;font-weight:500}
+.statement .sub{display:block;font-size:16px;font-weight:400;color:var(--muted);margin-top:8px}
+.was{font-size:14px;color:var(--muted)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.fact{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px;display:flex;flex-direction:column;gap:2px}
+.fact b{font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.swatches{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+.sw{display:flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;color:var(--muted)}
+.sw i{display:block;width:34px;height:34px;border-radius:8px;border:1px solid var(--line)}
+.pages{display:grid;gap:10px;margin:0;padding:0;list-style:none}
+.pages li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 20px;display:grid;grid-template-columns:150px 1fr;gap:16px}
+.blocks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:b}
+.blocks > li{counter-increment:b;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px 22px 20px 64px;position:relative;display:flex;flex-direction:column;gap:8px}
+.blocks > li::before{content:counter(b);position:absolute;left:20px;top:18px;width:30px;height:30px;border-radius:50%;background:var(--olive-soft);color:var(--olive);font-weight:700;display:grid;place-items:center;font-size:14px}
+.tell{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.case{border-top:1px solid var(--line);padding-top:12px;margin-top:4px;display:flex;flex-direction:column;gap:6px}
+.case h4{margin:0;font-size:15.5px;color:var(--brown)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chip{font-size:12.5px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--olive-soft);color:var(--olive)}
+.chip.q{background:var(--accent-soft);color:var(--accent)}
+.tablewrap{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+th,td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:700}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.hi{color:var(--accent);font-weight:700}
+.headline{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+.hl{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:4px}
+.hl strong{font-family:var(--display);font-weight:500;font-size:22px;color:var(--brown);font-variant-numeric:tabular-nums}
+.todo{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px;counter-reset:t}
+.todo li{counter-increment:t;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 18px;display:grid;grid-template-columns:36px 1fr;gap:8px}
+.todo li::before{content:counter(t);font-weight:700;color:var(--accent)}
+.why{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+.skip{border:1px dashed var(--line);border-radius:10px;padding:18px 22px;display:flex;flex-direction:column;gap:8px}
+.skip ul{margin:0;padding-left:18px}
+footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);padding-top:20px}
+@media (max-width:560px){
+  .pages li{grid-template-columns:1fr;gap:4px}
+  .blocks > li{padding-left:22px;padding-top:58px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">Чернетка 5 · 16 листопада 2026 · усі матеріали зібрано</span>
+  <h1>План сайту-портфоліо<span class="star">*</span></h1>
+  <p class="note">Позначка <span class="chip">Реф.</span> показує, з якого скріншоту взято прийом. Усі факти взято з вашого брифу та відповідей.</p>
+</header>
+
+<section id="positioning">
+  <h2><span class="n">01</span>Позиціонування</h2>
+  <div class="statement">Веду сайти від ідеї до запуску й сама створюю їхній дизайн.<span class="sub">Координую фронтенд, SEO, графіку, відео й 3D, тож вам не потрібні окремо PM і дизайнер, щоб макет став готовим продуктом.</span></div>
+</section>
+
+<section id="basis">
+  <h2><span class="n">02</span>Основа сайту</h2>
+  <div class="facts">
+    <div class="fact"><b>Ім'я</b>Катерина Кочерга</div>
+    <div class="fact"><b>Мова</b>Лише українська</div>
+    <div class="fact"><b>Роль, яку шукаю</b>Проджект-менеджерка з функціями вебдизайнерки</div>
+    <div class="fact"><b>Формат</b>Фултайм, гібрид, Київ. Невелика IT-компанія, не агенція</div>
+    <div class="fact"><b>Контакти</b>066 780 03 79 · kocherg@ukr.net · Telegram <a href="https://t.me/e_kocherga">@e_kocherga</a> (посиланням, відкривається одразу)</div>
+    <div class="fact"><b>Збірка й адреса</b>Верстає Claude, публікація на Vercel, безкоштовна адреса на vercel.app</div>
+    <div class="fact"><b>Фото</b>Перший екран: портрет у кріслі на тлі цегли, погляд у камеру. Бордовий костюм збігається з акцентом 7B3533. «Про мене»: портрет біля вікна. Фото на барному стільці лишаємо в запасі.</div>
+    <div class="fact"><b>Зв'язок</b>Без форми: лише кнопки Telegram, телефону й email</div>
+    <div class="fact"><b>Палітра</b>
+      <span class="swatches">
+        <span class="sw"><i style="background:#F2EFEA"></i>F2EFEA</span>
+        <span class="sw"><i style="background:#C2A78A"></i>C2A78A</span>
+        <span class="sw"><i style="background:#6D724A"></i>6D724A</span>
+        <span class="sw"><i style="background:#593E33"></i>593E33</span>
+        <span class="sw"><i style="background:#7B3533"></i>7B3533 *</span>
+      </span>
+      <span class="note">Остання — колір символу-зірочки.</span>
+    </div>
+    <div class="fact"><b>Не показуємо</b>Тексти й SMM-роботи: вони не стосуються поточної спеціальності</div>
+  </div>
+</section>
+
+<section id="pages">
+  <h2><span class="n">03</span>Сторінки</h2>
+  <ul class="pages">
+    <li><strong>Головна</strong><span>За пів хвилини показує, хто ви, які проєкти довели до запуску з якими результатами і як із вами зв'язатися. Кейси живуть тут же стислими блоками, які можна розгорнути.</span></li>
+    <li><strong>Про мене</strong><span>Починається з поточної ролі, далі пояснює, як попередні близько 15 років у копірайтингу, контенті й SMM допомагають у роботі сьогодні, і завершується тим, яку роботу ви шукаєте.</span></li>
+  </ul>
+  <p class="note">Окремих сторінок кейсів не робимо. Кожен кейс на головній займає один екран у згорнутому вигляді й кілька абзаців у розгорнутому.</p>
+</section>
+
+<section id="home">
+  <h2><span class="n">04</span>Блоки головної сторінки</h2>
+  <ol class="blocks">
+    <li>
+      <h3>Шапка</h3>
+      <ul class="tell">
+        <li>Ліворуч меню: Роботи, Про мене, Що я шукаю.</li>
+        <li>По центру «Катерина Кочерга».</li>
+        <li>Праворуч телефон і кнопка Telegram, які відкриваються одним натиском.</li>
+      </ul>
+      <div class="chips"><span class="chip">Реф. 1</span></div>
+    </li>
+    <li>
+      <h3>Перший екран</h3>
+      <ul class="tell">
+        <li>Великий заголовок-тріада, наприклад «Дизайн. Команда. Запуск.», де одне слово виділене кольором 7B3533.</li>
+        <li>Під ним позиціонування одним реченням і рядок «Проджект-менеджерка з функціями вебдизайнерки · Київ».</li>
+        <li>Велике фото: портрет у кріслі, погляд у камеру.</li>
+        <li>Кнопка «Написати в Telegram».</li>
+      </ul>
+      <div class="chips"><span class="chip">Реф. 1</span><span class="chip">Реф. 3</span></div>
+    </li>
+    <li>
+      <h3>Стрічка компетенцій</h3>
+      <ul class="tell">
+        <li>Біжучий рядок: управління проєктом · вебдизайн · UI Kit · e-commerce · фронтенд · SEO · графічний дизайн · відео · 3D-анімація.</li>
+      </ul>
+      <div class="chips"><span class="chip">Реф. 1</span></div>
+    </li>
+    <li>
+      <h3>Від макета до релізу</h3>
+      <ul class="tell">
+        <li><b>Координую.</b> З фронтенд-розробником додаємо розділи, виправляємо баги й фільтри, прискорюємо сайт. З SEO-спеціалістом збираємо ключі, правки з оптимізації, купуємо посилання, запускаємо контекстну рекламу. З 3D-аніматором і відеокомандою зробили три ролики для головної Winncom.</li>
+        <li><b>Проєктую.</b> Дизайн Prodigi з нуля, нові сторінки Winncom, логотип Prodigi (з AI та власноруч), презентація компанії Winncom.</li>
+        <li><b>Запускаю.</b> Prodigi запущено в серпні 2026 року. Оновлений Winncom запустили за пів року, хоча попередня команда не впоралась за 8 місяців.</li>
+      </ul>
+      <div class="chips"><span class="chip">Реф. 4</span></div>
+    </li>
+    <li>
+      <h3>Роботи (згорнуті кейси, що розгортаються)</h3>
+      <div class="case">
+        <h4>1. Winncom: сайт IT-компанії, який 4 роки не могли оновити</h4>
+        <ul class="tell">
+          <li><b>Проблема.</b> Фідбек був ускладнений, і не було людини, яка замикала б на собі всі завдання проєкту й збирала правки керівника. Попередня команда з трьох людей працювала 8 місяців і не впоралась.</li>
+          <li><b>Роль.</b> Проджект-менеджерка й вебдизайнерка. Робота тривала пів року, паралельно з Prodigi.</li>
+          <li><b>Що зроблено.</b>
+            <ul>
+              <li>Тексти рішень.</li>
+              <li>Підбір і генерація фото до статей.</li>
+              <li>Замовлення в графічного дизайнера схем та іконок для ілюстрації рішень.</li>
+              <li>Верстка сторінок: близько 8 нових сторінок для розділів «Рішення» і «Проєкти» з блоків наявного макета.</li>
+              <li>Правки макетів за юзабіліті й вимогами керівника.</li>
+              <li>Нові іконки й кольори в UI Kit.</li>
+              <li>Три ролики для головної: ідея керівника, ескізи 3D-аніматора, фінальна версія відеокоманди.</li>
+            </ul>
+          </li>
+          <li><b>Результат.</b> Сайт оновили 2 жовтня 2026 року. У перший місяць після оновлення частка кліків у Google зросла з 1,3% до 1,8%, а в другій половині жовтня сягнула 3,7%. Середня позиція в українській видачі покращилася з 14 до 11. Сторінки рішень приваблюють клієнтів: один із них сам звернувся до менеджера, щоб розібратися, як працює рішення. Детальніше в розділі 06.</li>
+          <li><b>Чесно підписуємо:</b> базовий макет сайту робив підрядник, ви компонували з нього нові сторінки й координували весь проєкт.</li>
+          <li><b>Зображення:</b> у кейс підуть головна, «Наші рішення», дві сторінки рішень (відеоконференції та відеотрансляції), сторінка «Сервісні послуги» і 10-секундний ролик для головної. Ролик крутиться в кейсі без звуку, а обкладинкою стає кадр із нічним Києвом і лазерним радіомостом.</li>
+        </ul>
+      </div>
+      <div class="case">
+        <h4>2. Prodigi: інтернет-магазин системного обладнання з нуля</h4>
+        <ul class="tell">
+          <li><b>Роль.</b>
+            <ul>
+              <li>Дизайн з нуля.</li>
+              <li>Координація фронтенду та SEO.</li>
+              <li>Координація графічного дизайнера: ви збираєте фото пристроїв і передаєте їх на обробку, а потім вони з'являються на сайті.</li>
+            </ul>
+          </li>
+          <li><b>Що зроблено.</b> Головна сторінка, каталог, фільтри, картки товарів, кошик і зв'язок із менеджером. Кожен елемент допомагає B2B-покупцеві знайти саме той прилад чи аксесуар, легко покласти його в кошик, купити, а за потреби звернутися до менеджера. Логотип ви зробили з AI та власноруч.</li>
+          <li><b>Результат</b> за перші три місяці показано в розділі 05. На картку йдуть три цифри й оцінка швидкості 99/100.</li>
+          <li><b>Зображення:</b> головна, каталог роутерів, картка товару й оформлення замовлення вже є. Перед публікацією обріжу верхню адмін-панель WordPress, а на скріні оформлення приховаю заповнені поля форми.</li>
+        </ul>
+      </div>
+      <div class="case">
+        <h4>3. Eventure: застосунок для культурних подій, курсова GoIT</h4>
+        <ul class="tell">
+          <li><b>Ідея.</b> Мобільний застосунок, у якому можна знайти культурні події (концерти, виставки), купити на них квитки й забронювати столик у ресторані, все в одному місці.</li>
+          <li><b>Проблема.</b> Люди витрачають час, перемикаючись між сайтами квитків і ресторанів. Інформація розпорошена, а знайти потрібну подію складно.</li>
+          <li><b>Конкурентний аналіз.</b> Ви розібрали Eventbrite, TodayTix і Fever. Жоден не поєднує події з ресторанами й не має водночас зручного пошуку, навігації, купівлі квитків і відгуків.</li>
+          <li><b>Персона.</b> Емілі, 31 рік, Лондон, журналістка. Їй потрібні фільтри за категорією, датою й ціною, повна інформація про подію в одному місці і купівля квитка в кілька натисків.</li>
+          <li><b>Що зроблено.</b> User flow, онбординг, UI Kit (кольори, шрифт Inter, кнопки в чотирьох станах, іконки), вайрфрейми й фінальні екрани: головна, пошук із фільтрами, картка події, бронювання столика, профіль, нагороди. Інструменти: Figma, Photoshop.</li>
+          <li><b>Роль і оцінка.</b> Ви одноосібна авторка від задуму до UI. Оцінка ментора: «Відмінно, молодець, все прийнято!»</li>
+          <li><b>Чесно підписуємо:</b> тестування з користувачами й клікового прототипа не було.</li>
+          <li><b>Зображення:</b> у кейс підуть заставка, онбординг, вхід із відновленням пароля, головна з подіями та картка ресторану з бронюванням столика.</li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <h3>Про мене коротко</h3>
+      <ul class="tell">
+        <li>Спершу поточна роль. Близько року ви працюєте проджект-менеджеркою й вебдизайнеркою в IT-компанії, координуєте фронтенд-розробника, SEO-спеціаліста, графічного дизайнера, відеомейкера й 3D-аніматора.</li>
+        <li>Потім те, як вам допомагає попередній досвід:
+          <ul>
+            <li>Тексти для сторінок ви пишете самі.</li>
+            <li>Знання SEO й досвід SEO-копірайтингу допомагають точно ставити задачі SEO-спеціалісту.</li>
+            <li>SMM розвинув художнє бачення: ви коригуєте сценарії та бачите, що можна спростити, і це допомагає з відеомейкером і 3D-аніматором.</li>
+            <li>Дизайнерський досвід дає змогу одразу візуалізувати, що змінити або створити.</li>
+          </ul>
+        </li>
+        <li>Розгорнута версія живе на сторінці «Про мене».</li>
+      </ul>
+    </li>
+    <li>
+      <h3>Що я шукаю</h3>
+      <ul class="tell">
+        <li>Роль проджект-менеджерки з функціями вебдизайнерки, фултайм, гібрид, Київ, невелика IT-компанія, не агенція.</li>
+      </ul>
+    </li>
+    <li>
+      <h3>Контакт</h3>
+      <ul class="tell">
+        <li>Великі кнопки: «Написати в Telegram» (посилання на t.me/e_kocherga), телефон 066 780 03 79, email kocherg@ukr.net.</li>
+        <li>Форми зворотного зв'язку немає.</li>
+      </ul>
+      <div class="chips"><span class="chip">Реф. 3</span></div>
+    </li>
+    <li>
+      <h3>Футер</h3>
+      <ul class="tell">
+        <li>Простий: ім'я, ті самі три контакти, рік.</li>
+      </ul>
+    </li>
+  </ol>
+  <div class="skip">
+    <h3>Що свідомо не беремо з референсів</h3>
+    <ul>
+      <li>Блок «37+ проєктів / 72+ клієнтів» не беремо. Замість нього ставимо реальні цифри Prodigi.</li>
+      <li>Плаваючу картку на першому екрані й карту світу не беремо.</li>
+      <li>Кілька фото поспіль замінюємо фрагментами інтерфейсів.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="prodigi">
+  <h2><span class="n">05</span>Prodigi: перші три місяці після запуску</h2>
+  <p class="note">Джерела: ваші звіти GA4 за вересень і жовтень, звіт Search Console за 30.07–29.08 і SEO-Checker за 28.10. Сайт запущено в серпні, тож серпень є відправною точкою, а не «до редизайну». Це результат роботи всієї команди, яку ви координували: дизайну, фронтенду, SEO й посилань.</p>
+
+  <div class="headline">
+    <div class="hl"><strong>×9</strong><span>сеансів за три місяці: 43 у серпні, 406 у жовтні</span></div>
+    <div class="hl"><strong>10 замовлень</strong><span>у жовтні; у вересні їх не було</span></div>
+    <div class="hl"><strong>1-ше місце</strong><span>у Google за запитами «cambium epmp купити» і «cambium epmp україна»</span></div>
+  </div>
+  <p class="note">Ці три цифри пропоную для картки кейсу. Дохід не публікуємо.</p>
+
+  <div class="headline">
+    <div class="hl"><strong>99 / 100</strong><span>швидкість на комп'ютері (PageSpeed Insights, 12.11.2026)</span></div>
+    <div class="hl"><strong>100 / 100</strong><span>оптимальні методи й оптимізація для пошукових систем</span></div>
+    <div class="hl"><strong>84 / 100</strong><span>доступність: на сайт-портфоліо не виносимо</span></div>
+  </div>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Показник</th><th class="num">Серпень</th><th class="num">Вересень</th><th class="num">Жовтень</th></tr></thead>
+      <tbody>
+        <tr><td>Сеанси</td><td class="num">43</td><td class="num">275</td><td class="num hi">406</td></tr>
+        <tr><td>Перегляди сторінок</td><td class="num">207</td><td class="num">629</td><td class="num hi">1 054</td></tr>
+        <tr><td>Сеанси з пошуку Google</td><td class="num">21</td><td class="num">70</td><td class="num hi">110</td></tr>
+        <tr><td>Переходи з ChatGPT</td><td class="num">—</td><td class="num">13</td><td class="num">16</td></tr>
+        <tr><td>Час взаємодії на користувача</td><td class="num">—</td><td class="num">53 с*</td><td class="num hi">1 хв 50 с</td></tr>
+        <tr><td>Перегляди сторінки оформлення замовлення</td><td class="num">—</td><td class="num">2*</td><td class="num hi">27</td></tr>
+        <tr><td>Покупки</td><td class="num">—</td><td class="num">0</td><td class="num hi">10</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Вересень і жовтень наведено за 1–28 число місяця. * Значення з порівняльного періоду жовтневого звіту (3–30 вересня). У тому ж звіті за цей період 279 сеансів і 72 сеанси з пошуку, тобто розбіжність із вереснем мінімальна.</p>
+  <p class="note">SEO на 28.10: зі 94 відстежуваних запитів сайт присутній за 11, з них 6 у топ-10. На 2-му місці запит «peplink україна». У перший місяць CTR у Google становив 7%.</p>
+</section>
+
+<section id="winncom">
+  <h2><span class="n">06</span>Winncom: до і після оновлення 2 жовтня</h2>
+  <p class="note">Джерело: Google Search Console, вебпошук за серпень, вересень і жовтень 2026 року. «До» — серпень і вересень, «після» — жовтень, тобто лише перший місяць після оновлення.</p>
+
+  <div class="headline">
+    <div class="hl"><strong>1,3% → 1,8%</strong><span>CTR у Google: вересень проти жовтня. У другій половині жовтня 3,7%</span></div>
+    <div class="hl"><strong>14 → 11</strong><span>середня позиція в Україні: сайт піднявся в українській видачі</span></div>
+    <div class="hl"><strong>+1 клієнт</strong><span>сам звернувся до менеджера через сторінку рішення</span></div>
+  </div>
+  <p class="note">Ці три пункти пропоную для картки кейсу.</p>
+
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Показник</th><th class="num">Серпень</th><th class="num">Вересень</th><th class="num">Жовтень</th></tr></thead>
+      <tbody>
+        <tr><td>CTR (частка кліків від показів)</td><td class="num">1,03%</td><td class="num">1,29%</td><td class="num hi">1,76%</td></tr>
+        <tr><td>CTR на мобільних</td><td class="num">1,94%</td><td class="num">1,86%</td><td class="num hi">2,84%</td></tr>
+        <tr><td>Середня позиція (усі країни)</td><td class="num">16,1</td><td class="num">14,7</td><td class="num hi">14,1</td></tr>
+        <tr><td>Україна: середня позиція</td><td class="num">19,8</td><td class="num">14,0</td><td class="num hi">11,0</td></tr>
+        <tr><td>Україна: CTR</td><td class="num">2,2%</td><td class="num">2,8%</td><td class="num hi">3,9%</td></tr>
+        <tr><td>Кліки з брендових запитів (winncom, вінком тощо)</td><td class="num">49</td><td class="num">52</td><td class="num">49</td></tr>
+        <tr><td>Кліки, усього</td><td class="num">251</td><td class="num">260</td><td class="num">187</td></tr>
+        <tr><td>Покази, усього</td><td class="num">24 482</td><td class="num">20 218</td><td class="num">10 642</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="skip">
+    <h3>Чому кліки й покази на сайт не виносимо</h3>
+    <ul>
+      <li>У жовтні покази впали майже вдвічі, а кліки на 28%. Різке падіння почалося 14 жовтня: середня позиція того дня стрибнула до 26. Типова причина після оновлення сайту в тому, що Google переіндексовує сторінки зі зміненими адресами.</li>
+      <li>Найбільше впали покази старих PDF-даташитів (з 12 586 до 6 627) і закордонного трафіку: зі США з 3 343 до 1 329. Це не цільова аудиторія українського інтегратора.</li>
+      <li>Водночас з другої половини жовтня кліки знову ростуть, а якість трафіку краща: CTR і позиції в Україні покращилися.</li>
+      <li>Одного місяця після оновлення замало для чесного висновку про трафік. Варто переглянути цифри за листопад і грудень. Падіння 14 жовтня варто також показати SEO-спеціалісту: перевірити редиректи зі старих адрес.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>Наступний крок: тексти й верстка головної та сторінки «Про мене» в цій палітрі, потім публікація на vercel.app.</footer>
+</div>
+</body>
+</html>
