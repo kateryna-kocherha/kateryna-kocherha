@@ -27,25 +27,23 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .btn:hover{background:var(--brown)}
 
 /* Hero: beige bar with menu on top, full-width photo below */
-.hero{position:relative;height:clamp(600px,calc(76px + 46vw),820px);background:#2b1a14;overflow:hidden;isolation:isolate;--pad:clamp(16px,3vw,40px);--on-photo:#F6F1E9;--hl:#E9C58E}
+.hero{position:relative;height:clamp(600px,calc(76px + 46vw),820px);background:#2b1a14;overflow:hidden;isolation:isolate;--pad:clamp(16px,3vw,40px);--on-photo:#F6F1E9;--hl:#E9C58E;--soft:#E3CFAE}
 .hero__bg{position:absolute;left:0;top:76px;width:100%;height:calc(100% - 76px);object-fit:cover;filter:blur(30px) brightness(.8);transform:scale(1.15);z-index:0}
 .hero__photo{position:absolute;left:50%;top:76px;transform:translateX(-50%);width:min(74vw,1100px);height:calc(100% - 76px);object-fit:cover;object-position:38% 50%;z-index:0;-webkit-mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(to right,transparent,#000 14%,#000 86%,transparent)}
 .hero::after{content:"";position:absolute;left:0;right:0;top:76px;bottom:0;z-index:1;pointer-events:none;background:linear-gradient(to left,rgba(30,20,15,.6) 0,rgba(30,20,15,0) 38%),linear-gradient(to bottom,rgba(43,33,28,.25) 0,rgba(43,33,28,0) 30%,rgba(43,33,28,0) 62%,rgba(43,33,28,.35) 100%)}
 .hero__title{margin:0;position:absolute;inset:0;font-family:var(--display);font-weight:700;letter-spacing:-.03em;line-height:1;pointer-events:none;z-index:2;color:var(--on-photo);text-shadow:0 2px 18px rgba(43,33,28,.55)}
 .w{position:absolute;top:36%;font-size:clamp(34px,5.6vw,84px);white-space:nowrap}
 .w--l{left:var(--pad)}
-.w--c{left:46%;transform:translateX(-50%);top:62%;font-size:clamp(38px,6vw,88px)}
+.w--c{left:50%;transform:translateX(-50%);top:62%;font-size:clamp(38px,6vw,88px)}
 .w--r{right:var(--pad);color:var(--hl)}
 
 .note{position:absolute;top:47%;margin:0;max-width:260px;font-size:15px;font-weight:500;color:var(--on-photo);text-shadow:0 1px 12px rgba(43,33,28,.7);z-index:2}
 .note--l{left:var(--pad)}
 .note--r{right:var(--pad);text-align:right}
-.role{position:absolute;left:var(--pad);bottom:5%;margin:0;max-width:300px;font-size:15px;color:var(--on-photo);text-shadow:0 1px 12px rgba(43,33,28,.7);z-index:2}
-.role b{font-size:17px}
-.cta{position:absolute;right:var(--pad);bottom:5%;z-index:3;font-family:var(--display);font-weight:500;font-size:clamp(15px,1.6vw,22px);color:var(--hl);border-bottom:2px solid var(--hl);padding-bottom:6px;text-transform:uppercase;text-shadow:0 1px 12px rgba(43,33,28,.6)}
-.cta:hover{color:#fff;border-color:#fff}
+.role{position:absolute;left:50%;transform:translateX(-50%);top:calc(62% + clamp(38px,6vw,88px) + 10px);margin:0;width:max-content;max-width:90%;text-align:center;font-size:15px;color:var(--soft);text-shadow:0 1px 12px rgba(43,33,28,.8);z-index:2}
+.role b{font-size:clamp(15px,1.35vw,19px);font-weight:700}
 /* Ticker */
-.ticker{background:var(--brown);color:var(--bg);overflow:hidden;white-space:nowrap;padding:16px 0;font-weight:700;font-size:15px;letter-spacing:.04em;text-transform:uppercase}
+.ticker{background:var(--brown);color:var(--bg);overflow:hidden;white-space:nowrap;padding:10px 0;font-weight:500;font-size:13px;letter-spacing:.01em}
 .ticker__track{display:inline-flex;animation:run 40s linear infinite}
 @keyframes run{to{transform:translateX(-50%)}}
 
@@ -58,8 +56,8 @@ a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   .hero__title{position:static;order:1;display:flex;flex-direction:column;gap:4px;padding:8px 16px 20px;color:var(--brown);text-shadow:none}
   .w,.w--c{position:static;transform:none;font-size:clamp(40px,13vw,64px)}
   .w--r{color:var(--accent)}
-  .note,.role,.cta{position:static;max-width:none;text-align:left;color:var(--brown);text-shadow:none;padding:12px 16px 0}
-  .cta{order:6;align-self:flex-start;margin:12px 16px 24px;padding:0 0 6px;color:var(--accent);border-color:var(--accent)}
-  .note--l{order:3}.note--r{order:4}.role{order:5}
+  .note,.role{position:static;transform:none;width:auto;max-width:none;text-align:left;color:var(--brown);text-shadow:none;padding:12px 16px 0}
+  .role b{font-size:16px}
+  .note--l{order:3}.note--r{order:4}.role{order:5;padding-bottom:24px}
 }
 @media (prefers-reduced-motion:reduce){.ticker__track{animation:none}}
