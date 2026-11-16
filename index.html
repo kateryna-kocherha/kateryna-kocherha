@@ -12,16 +12,18 @@
 </head>
 <body>
 <header class="top">
-  <nav class="top__nav" aria-label="Основне меню">
+  <nav class="top__nav" id="menu" aria-label="Основне меню">
     <a href="#about">Про мене</a>
     <a href="#works">Роботи</a>
     <a href="#looking">Що я шукаю</a>
+    <a class="btn menu-tg" href="https://t.me/e_kocherga" target="_blank" rel="noopener">Telegram</a>
   </nav>
   <a class="top__name" href="#" aria-label="Катерина Кочерга — на початок">Катерина Кочерга</a>
   <div class="top__contacts">
     <a class="top__phone" href="tel:+380667800379">066 780 03 79</a>
     <a class="btn btn--small" href="https://t.me/e_kocherga" target="_blank" rel="noopener">Telegram</a>
   </div>
+  <button class="burger" type="button" aria-label="Відкрити меню" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
 </header>
 
 <main>
@@ -44,5 +46,6 @@
     </div>
   </section>
 </main>
+<script type="module" src="/src/main.js"></script>
 </body>
 </html>
